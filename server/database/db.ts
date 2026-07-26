@@ -395,12 +395,7 @@ class DatabaseService {
     }
     return p;
   }
-  public getPaymentByBooking() { return null; }
-  public getPaymentByPNR() { return null; }
-  public getUserNotifications() { return []; }
-  public createNotification() { return null; }
-  public markNotificationRead() { return true; }
-  public markAllNotificationsRead() { return true; }
+
   public async getMetrics() {
     const tRes = await dbQuery('SELECT COUNT(*) FROM trains WHERE is_deleted = false');
     const sRes = await dbQuery('SELECT COUNT(*) FROM stations WHERE is_deleted = false');

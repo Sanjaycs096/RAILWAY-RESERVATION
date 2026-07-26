@@ -1,22 +1,21 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+  <h1>RailNet Enterprise</h1>
+  <p>National Railway System Platform</p>
 </div>
 
-# Run and deploy your AI Studio app
+## Description
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/6bdb15cc-a059-4e25-8f25-58b9cd8e7e92
+RailNet Enterprise is a modern, full-stack application designed to handle complex railway reservations, live tracking, station directory indexing, and robust administrative business analytics.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Configure Environment Variables:
+   Create a `.env` file in the root directory based on `.env.example` and set your `DATABASE_URL` and `JWT_SECRET`.
+3. Start the application:
    `npm run dev`
 
 ## Vercel Deployment
