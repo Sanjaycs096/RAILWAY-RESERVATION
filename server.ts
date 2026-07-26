@@ -1,18 +1,18 @@
 import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 
-import authRouter from './server/api/auth';
-import trainsRouter from './server/api/trains';
-import stationsRouter from './server/api/stations';
-import routesRouter from './server/api/routes';
-import bookingsRouter from './server/api/bookings';
-import paymentsRouter from './server/api/payments';
-import notificationsRouter from './server/api/notifications';
-import trackingRouter from './server/api/tracking';
-import adminRouter from './server/api/admin';
+import authRouter from './server/api/auth.js';
+import trainsRouter from './server/api/trains.js';
+import stationsRouter from './server/api/stations.js';
+import routesRouter from './server/api/routes.js';
+import bookingsRouter from './server/api/bookings.js';
+import paymentsRouter from './server/api/payments.js';
+import notificationsRouter from './server/api/notifications.js';
+import trackingRouter from './server/api/tracking.js';
+import adminRouter from './server/api/admin.js';
 
-import analyticsRouter from './server/api/analytics';
-import { rateLimiter } from './server/middleware/auth';
+import analyticsRouter from './server/api/analytics.js';
+import { rateLimiter } from './server/middleware/auth.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

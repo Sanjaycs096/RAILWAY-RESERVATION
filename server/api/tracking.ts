@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
-import { db } from '../database/db';
-import { LiveTracking, StationStop } from '../../src/types';
+import { db } from '../database/db.js';
+import { LiveTracking, StationStop } from '../../src/types/index.js';
 
 const router = Router();
 

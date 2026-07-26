@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import bcrypt from 'bcryptjs';
-import { dbQuery } from './pool';
+import { dbQuery } from './pool.js';
 
 import { fileURLToPath } from 'url';
 

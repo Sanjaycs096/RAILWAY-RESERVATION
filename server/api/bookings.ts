@@ -1,7 +1,7 @@
 import { Router, Response } from 'express';
-import { db } from '../database/db';
-import { verifyTokenMiddleware, AuthenticatedRequest } from '../middleware/auth';
-import { Booking, Passenger, Payment } from '../../src/types';
+import { db } from '../database/db.js';
+import { verifyTokenMiddleware, AuthenticatedRequest } from '../middleware/auth.js';
+import { Booking, Passenger, Payment } from '../../src/types/index.js';
 
 const router = Router();
 

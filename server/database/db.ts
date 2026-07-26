@@ -1,7 +1,7 @@
-import { User, Station, Route, Train, Booking, AuditLog, Passenger, Seat, Coach, Payment, Coupon, Refund, Notification } from '../../src/types';
+import { User, Station, Route, Train, Booking, AuditLog, Passenger, Seat, Coach, Payment, Coupon, Refund, Notification, StationStop } from '../../src/types/index.js';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
-import { dbQuery } from './pool';
+import { dbQuery } from './pool.js';
 
 class DatabaseService {
 
@@ -297,7 +297,13 @@ class DatabaseService {
       return {
         id,
         name: `Route for ${trainNumber}`,
-        stops
+        stops,
+        originCode: stops[0]?.stationCode || '',
+        destinationCode: stops[stops.length - 1]?.stationCode || '',
+        totalDistanceKm: stops[stops.length - 1]?.distanceKm || 0,
+        status: 'active',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
       };
     } catch(e) {
       console.error(e);
@@ -395,6 +401,15 @@ class DatabaseService {
     }
     return p;
   }
+  public getPaymentByBooking() { return null; }
+  public getPaymentByPNR() { return null; }
+  public getUserNotifications() { return []; }
+  public createNotification() { return null; }
+  public markNotificationRead() { return true; }
+  public markAllNotificationsRead() { return true; }
+  public getRoutes() { return []; }
+  public createRoute() { return null; }
+  public updateTrain() { return null; }
 
   public async getMetrics() {
     const tRes = await dbQuery('SELECT COUNT(*) FROM trains WHERE is_deleted = false');

@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { db } from '../database/db';
-import { verifyTokenMiddleware, requireRole, AuthenticatedRequest } from '../middleware/auth';
-import { Station } from '../../src/types';
+import { db } from '../database/db.js';
+import { verifyTokenMiddleware, requireRole, AuthenticatedRequest } from '../middleware/auth.js';
+import { Station } from '../../src/types/index.js';
 
 const router = Router();
 
