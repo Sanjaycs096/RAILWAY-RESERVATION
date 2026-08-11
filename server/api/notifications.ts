@@ -36,7 +36,7 @@ router.patch('/read-all', verifyTokenMiddleware, (req: AuthenticatedRequest, res
 });
 
 // POST /api/notifications/broadcast - Admin broadcast alert
-router.post('/broadcast', verifyTokenMiddleware, (req: AuthenticatedRequest, res: Response) => {
+router.post('/broadcast', verifyTokenMiddleware, async (req: AuthenticatedRequest, res: Response) => {
   if (req.user!.role !== 'admin') {
     return res.status(403).json({
       success: false,
@@ -45,7 +45,7 @@ router.post('/broadcast', verifyTokenMiddleware, (req: AuthenticatedRequest, res
   }
 
   const { title, message, priority, type } = req.body;
-  const users = db.getUsers();
+  const users = await db.getUsers();
 
   users.forEach(u => {
     db.createNotification({

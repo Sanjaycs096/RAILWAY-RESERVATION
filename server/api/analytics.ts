@@ -1,4 +1,4 @@
-import { Router, Response } from 'express';
+import { Router, Request, Response } from 'express';
 import { db } from '../database/db.js';
 import { verifyTokenMiddleware, AuthenticatedRequest } from '../middleware/auth.js';
 

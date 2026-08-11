@@ -299,7 +299,7 @@ class ApiClient {
 
   public async downloadReport(type: string = 'revenue') {
     const token = localStorage.getItem('token');
-    const response = await fetch(`${this.baseURL}/analytics/reports/download?type=${type}`, {
+    const response = await fetch(`${API_BASE}/analytics/reports/download?type=${type}`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }

@@ -1,4 +1,4 @@
-import { dbQuery } from './server/database/pool.ts';
+import { dbQuery } from '../server/database/pool.ts';
 
 async function main() {
   try {

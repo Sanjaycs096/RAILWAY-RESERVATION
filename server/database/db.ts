@@ -290,7 +290,7 @@ class DatabaseService {
         departureTime: r.departure_time || 'Destination',
         haltTime: `${r.halt_minutes || 0} mins`,
         distanceKm: Number(r.distance_from_source_km || 0),
-        day: r.day_number || 1,
+        dayNumber: r.day_number || 1,
         platformNumber: r.platform_number || 1
       }));
 
@@ -311,7 +311,7 @@ class DatabaseService {
     }
   }
   public getCoupons() { return []; }
-  public validateCoupon() { return { valid: false, discount: 0, message: '' }; }
+  public validateCoupon(code?: string, fare?: number) { return { valid: false, discount: 0, message: '', coupon: null }; }
   public async getTrainCoaches(trainNumber: string, classType: string): Promise<Coach[]> {
     const fareRes = await dbQuery('SELECT base_fare, reservation_charge FROM train_fares WHERE train_number = $1 AND class_code = $2', [trainNumber, classType]);
     let fare = 75;
@@ -401,15 +401,14 @@ class DatabaseService {
     }
     return p;
   }
-  public getPaymentByBooking() { return null; }
-  public getPaymentByPNR() { return null; }
-  public getUserNotifications() { return []; }
-  public createNotification() { return null; }
-  public markNotificationRead() { return true; }
-  public markAllNotificationsRead() { return true; }
+  public getPaymentByBooking(id?: string) { return null; }
+  public getUserNotifications(userId?: string) { return []; }
+  public createNotification(data?: any) { return null; }
+  public markNotificationRead(id?: string) { return true; }
+  public markAllNotificationsRead(userId?: string) { return true; }
   public getRoutes() { return []; }
-  public createRoute() { return null; }
-  public updateTrain() { return null; }
+  public createRoute(route?: any) { return null; }
+  public updateTrain(id?: string, updates?: any) { return null; }
 
   public async getMetrics() {
     const tRes = await dbQuery('SELECT COUNT(*) FROM trains WHERE is_deleted = false');

@@ -1,4 +1,4 @@
-import { dbQuery } from './server/database/pool';
+import { dbQuery } from '../server/database/pool';
 
 async function clearDb() {
   console.log('🧹 Clearing old mock data to prevent conflicts...');

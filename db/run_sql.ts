@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { dbQuery } from './server/database/pool';
+import { dbQuery } from '../server/database/pool';
 
 async function executeSqlFile() {
   console.log('⏳ Reading indian_railways_data.sql...');

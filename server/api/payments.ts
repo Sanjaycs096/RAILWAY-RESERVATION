@@ -41,8 +41,8 @@ router.post('/coupon/validate', (req, res: Response) => {
 });
 
 // GET /api/payments/receipt/:paymentId - Get detailed receipt
-router.get('/receipt/:paymentId', verifyTokenMiddleware, (req: AuthenticatedRequest, res: Response) => {
-  const payment = db.getPaymentByBooking(req.params.paymentId) || db.getPaymentByPNR(req.params.paymentId);
+router.get('/receipt/:paymentId', verifyTokenMiddleware, async (req: AuthenticatedRequest, res: Response) => {
+  const payment = db.getPaymentByBooking(req.params.paymentId) || await db.getPaymentByPNR(req.params.paymentId);
 
   if (!payment) {
     return res.status(404).json({

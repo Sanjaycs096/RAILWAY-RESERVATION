@@ -1,4 +1,4 @@
-import { dbQuery } from './server/database/pool';
+import { dbQuery } from '../server/database/pool';
 import bcrypt from 'bcryptjs';
 
 async function seedDemoUsers() {
